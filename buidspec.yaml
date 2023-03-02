@@ -9,6 +9,7 @@ phases:
   post_build:
     commands:
       - sam deploy --stack-name $stack_name --config-env $env
-# artifacts:
-#   files:
-#     - packaged-template.yml
+ 
+artifacts:
+  files:
+  - template.yml
