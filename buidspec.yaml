@@ -1,0 +1,14 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+  build:
+    commands:
+      - sam build 
+  post_build:
+    commands:
+      - sam deploy --stack-name $stack_name --config-env $env
+# artifacts:
+#   files:
+#     - packaged-template.yml
