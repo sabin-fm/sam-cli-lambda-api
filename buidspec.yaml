@@ -1,15 +1,15 @@
 version: 0.2
+
 phases:
   install:
     runtime-versions:
-      python: 3.9
+      python: lastest
+    commands:
+      - pip install awscli
+      - pip install aws-sam-cli
   build:
     commands:
-      - sam build 
-  post_build:
+      - sam build
+  deploy:
     commands:
-      - sam deploy --stack-name $stack_name --config-env $env
- 
-artifacts:
-  files:
-  - template.yml
+      - sam deploy --stack-name <stack-name> --template-file <path-to-template-file> --capabilities CAPABILITY_IAM
